@@ -1,0 +1,4 @@
+#Change description to appropriate keyword(s)
+
+Get-ADComputer -Filter * -Properties * -SearchBase "OU=Workstations,OU=All Computers,DC=domain,DC=com" |
+Where {$_.Description -like "*technology*"} | sort name | select name, description
