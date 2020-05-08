@@ -1,0 +1,7 @@
+#Change file/location as needed, as well as info to return
+
+$servers = Get-Content C:\DeviceList.txt
+
+foreach ($server in $servers) {
+Get-CimInstance -ClassName win32_operatingsystem -ComputerName "$server" | select csname, lastbootuptime
+}
