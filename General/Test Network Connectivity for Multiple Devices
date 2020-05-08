@@ -1,0 +1,21 @@
+#Uses Test-Connection with 1 count to see if device in list is replying
+#Script is set to suppress errors
+
+$devices = Get-Content C:\DeviceList.txt
+
+$ErrorActionPreference= 'silentlycontinue'
+
+foreach ($device in $devices) {
+
+
+    if (Test-Connection $device -Count 1 -Quiet)
+           {
+               $i++
+               Write-Host "Online : $($device)" -foreground green
+               $_
+           }
+        else
+           {
+               Write-Host "Offline: $($device)" -foreground red
+           }
+}
