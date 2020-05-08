@@ -1,0 +1,6 @@
+#Parameters below are an example of finding servers running 2008 or 2012 OS, with an additional filter excluding
+#servers with names beginning with "Test". Modify OS names or additional filters as appropriate.
+
+
+Get-ADComputer -Filter {(OperatingSystem -like "*2012*") -or (OperatingSystem -like "*2008*")} -Properties OperatingSystem | where {$_.name -notlike "Test*"} | Sort | Select Name,OperatingSystem 
+
