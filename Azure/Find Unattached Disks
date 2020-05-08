@@ -1,0 +1,4 @@
+#Lists unattached disks; useful for finding disks that are no longer being used or for migrations
+#that were unsuccessfully cleaned up
+
+Get-AzDisk | Where-Object {$_.ManagedBy -eq $Null} | Select name
