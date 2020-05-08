@@ -1,0 +1,7 @@
+#Browse to SCCM install folder that contains ConfigurationManager.psd1 before importing module
+#After importing module, cd to SCCM site name
+
+cd X:
+cd '.\Program Files\Microsoft Configuration Manager\AdminConsole\bin'
+Import-Module .\ConfigurationManager.psd1
+cd PS1:
