@@ -1,0 +1,9 @@
+#Plug in different KBs to see if they are installed on list of machines
+#Query returns those with specified update(s) installed
+
+$ErrorActionPreference= 'silentlycontinue'
+
+foreach ($device in (get-content "C:\DeviceList.txt")) {
+Get-Hotfix -ComputerName $device | Where {($_.HotFixID -like "KB4534293") -or 
+($_.HotFixID -like "KB4528760")}
+}
