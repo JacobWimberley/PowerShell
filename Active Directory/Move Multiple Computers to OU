@@ -1,0 +1,3 @@
+#Change appropriate OU names
+
+ForEach ($computer in (Get-Content c:\DeviceList.txt)) {Get-ADComputer $computer | Move-ADObject -TargetPath "ou=Name,ou=Name,ou=Name,dc=domain,dc=com"}
