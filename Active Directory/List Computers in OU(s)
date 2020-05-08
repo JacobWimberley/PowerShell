@@ -1,0 +1,28 @@
+#Change SearchBase to desired OU/sub-OU
+Get-ADComputer -Filter * -SearchBase "OU=Servers,OU=All Computers,DC=domain,DC=com" |
+sort name | select name
+
+#If you want to ignore specific sub-OUs
+? {$_.distinguishedname -notmatch 'OU=NameOfSub|OU=AnotherName|OU=AnotherNameEtc'}
+
+
+#If you want to ignore all sub-OUs
+Get-ADComputer -Filter * -SearchBase "OU=Workstations,OU=All Computers,DC=domain,DC=com" -SearchScope OneLevel
+
+
+#Add to end if you want total count
+| measure-object
+
+
+#Example of Get Computers Running Win 7, in "Workstations" OU, ignore TestOU1, TestOU3, TestOU3, etc. OUs
+
+Get-ADComputer -Filter * -Properties * -SearchBase "OU=Workstations,OU=All
+Computers,DC=domain,DC=com" | ? {$_.distinguishedname -notmatch
+'OU=TestOU1|OU=TestOU2|OU=TestOU3|OU=TestOU4|OU=TestOU5'} | Where {$_.OperatingSystem -like
+"*Windows 7*"} |  sort name | select name,operatingsystem | measure-object
+
+#Example of Get Computers by Specific Properties
+
+Get-ADComputer -Filter * -Properties * -SearchBase "OU=Workstations,OU=All
+Computers,DC=domain,DC=com" | Where {$_.description -like "*disabled*"} | sort name | select
+name,enabled,description
