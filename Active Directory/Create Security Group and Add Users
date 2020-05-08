@@ -1,0 +1,8 @@
+#Check names and OU paths
+
+New-ADGroup -Name "New Group Name" -DisplayName "New Group Name" -GroupScope DomainLocal -GroupCategory Security -Path "OU=Name,OU=Name2,OU=Security Groups,DC=domain,DC=com"
+
+
+#Could use variable for list of members
+
+Add-ADGroupMember -Identity "New Group Name" -Members user1,user2,user3
