@@ -1,0 +1,4 @@
+#Change path to csv location
+
+Import-Csv "C:\UserList.csv" |
+% {Add-ADGroupMember -Identity "Security Group Name" -Members $_.samaccountname}
