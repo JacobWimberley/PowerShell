@@ -1,0 +1,22 @@
+#Plug in to/from/subject/body/smtp server
+
+Send-MailMessage -To test.user@domain.com -From service@domain.com -Subject 'Test' -Body "This is only a test..." -SmtpServer yourSMTPserver
+
+#PowerShell mail options
+
+Send-MailMessage
+    [-To] <string[]>
+    [-Subject] <string>
+    [[-Body] <string>]
+    [[-SmtpServer] <string>]-From <string>
+    [-Attachments <string[]>]
+    [-Bcc <string[]>]
+    [-BodyAsHtml]
+    [-Encoding <Encoding>][-Cc <string[]>]
+    [-ReplyTo <string[]>]
+    [-DeliveryNotificationOption <DeliveryNotificationOptions>][-Priority <MailPriority>]
+    [-Credential <pscredential>]
+    [-UseSsl]
+    [-Port <int>]
+    [<CommonParameters>]
+    
