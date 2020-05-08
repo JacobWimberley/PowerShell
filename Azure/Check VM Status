@@ -1,0 +1,1 @@
+Get-AzureRmVM -ResourceGroupName "RG Name" -Name "VMname" -Status
