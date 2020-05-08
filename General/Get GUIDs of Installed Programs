@@ -1,0 +1,8 @@
+#Try first
+
+Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | Get-ItemProperty
+
+
+#If no results, use below to check other key
+
+Get-ChildItem HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall | Get-ItemProperty
