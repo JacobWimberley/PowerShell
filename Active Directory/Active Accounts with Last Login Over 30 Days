@@ -1,0 +1,5 @@
+#Displays enabled accounts that have not logged in over 30 days
+
+Get-ADUser -Filter {Enabled -eq $TRUE} -Properties Name,SamAccountName,LastLogonDate |
+Where {($_.LastLogonDate -lt (Get-Date).AddDays(-30)) -and ($_.LastLogonDate -ne $null)} | Sort LastLogonDate |
+Select Name,Enabled,SamAccountName,LastLogonDate
