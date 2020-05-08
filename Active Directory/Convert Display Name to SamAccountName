@@ -1,0 +1,8 @@
+#Get samaccountname based off list of display names; ie: list contains "Wimberley, Jacob", returns jacobw (samaccountname)
+
+foreach ($aduser in (get-content "C:\DisplayNameList.txt")) {
+    $aduser = "*$($aduser.displayname)*"
+    write-verbose $aduser -Verbose
+    get-aduser -filter {displayname -like $aduser} -Properties displayname | 
+    select name, displayname, samaccountname
+}
