@@ -1,0 +1,4 @@
+#Change file path to appropriate location; returns OU that device resides in
+
+Get-Content C:\ComputerList.csv | ForEach-Object {Get-ADComputer $_} |
+select name,DistinguishedName
