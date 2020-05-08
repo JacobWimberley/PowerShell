@@ -1,0 +1,14 @@
+#Find devices used for single user name
+Get-CMUserDeviceAffinity -UserName domain\jacobw
+
+
+#Find devices used for list of user names
+Get-Content C:\UserList.txt | ForEach-Object {Get-CMUserDeviceAffinity -UserName domain\$_} | select UniqueUserName,ResourceName
+
+
+#Find user name used on single device
+Get-CMUserDeviceAffinity -DeviceName ComputerName
+
+
+#Find users from list of device names
+Get-Content C:\DeviceList.txt | ForEach-Object {Get-CMUserDeviceAffinity -DeviceName $_} | select UniqueUserName,ResourceName
