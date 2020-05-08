@@ -1,0 +1,3 @@
+#Change path to location of list file; change name to appropriate device collection
+
+Get-Content "C:\ListOfDevices.txt" | foreach { Add-CMDeviceCollectionDirectMembershipRule -CollectionName “Cool Name” -ResourceID (Get-CMDevice -Name $_).ResourceID }
