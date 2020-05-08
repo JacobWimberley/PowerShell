@@ -1,0 +1,4 @@
+#Returns departments in AD for users based off list of display names
+
+foreach ($aduser in (get-content "C:\UserList.txt")) {get-aduser -Filter * -Properties department | where {$_.name -like "$aduser"} | select -expandproperty department}
+
