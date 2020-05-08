@@ -1,0 +1,4 @@
+#Change to appropiate CN or OU; check Properties in AD if unsure
+
+Get-ADUser -Filter {Enabled -eq $TRUE} -SearchBase 'CN=Users,dc=domain,dc=com' |
+Sort | Select samaccountname 
