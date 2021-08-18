@@ -1,0 +1,9 @@
+#Specify path/file/date as appropriate
+
+$users = Get-ChildItem C:\Users
+foreach ($user in $users){
+$Src = "$($user.fullname)\AppData\Local\Microsoft\Teams\current\Teams.exe"
+If (Test-Path $Src) {
+Get-ChildItem –Path $Src -file -Recurse | Where-Object {($_.LastWriteTime -lt (Get-Date).AddDays(-180))} | Remove-Item
+}
+}
