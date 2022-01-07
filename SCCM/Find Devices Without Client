@@ -1,0 +1,1 @@
+Get-CMDevice | Where-Object { $_.IsClient -eq $false } | sort name | Select-Object Name
