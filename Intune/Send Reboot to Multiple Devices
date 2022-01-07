@@ -1,0 +1,9 @@
+$Devices = Get-IntuneManagedDevice -Filter "contains(deviceName,'ENTERNAME')"
+
+Foreach ($Device in $Devices)
+{
+ 
+Invoke-IntuneManagedDeviceRebootNow -managedDeviceId $Device.managedDeviceId
+Write-Host "Sending Reboot to Device with DeviceID $($Device.managedDeviceId)" -ForegroundColor Yellow
+ 
+}
