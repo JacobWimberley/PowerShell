@@ -1,0 +1,14 @@
+
+$Devices = Get-IntuneManagedDevice -Filter "contains(deviceName,'NAME')"
+
+#Below looks for Dell Optiplex 7070 and 7090 models as an example
+#and pulls the specified details
+
+$Output = Foreach ($Device in $Devices)
+{
+Get-IntuneManagedDevice -managedDeviceId $Device.managedDeviceId | where {($_.model -like '*7070*') -or ($_.model -like '*7090*')} | select devicename,manufacturer,model,serialNumber,userPrincipalName 
+}
+
+
+$Output | Export-Csv C:\users\yourname\documents\IntuneDellWorkstations.csv
+
