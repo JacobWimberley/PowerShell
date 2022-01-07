@@ -1,0 +1,2 @@
+#Specify deployment type - IE: Application will remove all application deployments from collection
+Get-CMDeployment -CollectionName "CollName" -FeatureType Application | Remove-CMDeployment -Force
