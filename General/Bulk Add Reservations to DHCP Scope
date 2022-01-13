@@ -1,0 +1,3 @@
+#Make sure csv is formatted properly to include scopeID, IPaddress, name, clientID, etc.
+
+Import-Csv –Path C:\folder1\folder2\devices.csv | Add-DhcpServerv4Reservation -ComputerName "dhcpserver.domain.com"
